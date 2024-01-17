@@ -1,0 +1,13 @@
+<launch>
+    <arg name="input_pcl_topic" default="/lidar" />
+    <arg name="filtered_pcl_topic" default="/filtered" />
+    <arg name="intensity_threshold" default="1000" />
+    <arg name="throttle_period" default="10" />
+
+    <node pkg="simple_intensity_filter" type="simple_intensity_filter" name="lidar_filter" output="screen">
+        <param name="input_pcl_topic" value="$(arg input_pcl_topic)" />
+        <param name="filtered_pcl_topic" value="$(arg filtered_pcl_topic)" />
+        <param name="intensity_threshold" value="$(arg intensity_threshold)" />
+        <param name="throttle_period" value="$(arg throttle_period)" />
+    </node>
+</launch>
